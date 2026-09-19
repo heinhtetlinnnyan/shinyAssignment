@@ -14,6 +14,11 @@ shinyServer(function(input, output) {
         
         output$pred <- renderText(paste(round(pred(), 1), "MPG"))
         
+        output$cost <- renderText({
+                cost <- input$miles / pred() * input$price
+                paste0("Estimated yearly fuel cost: $", format(round(cost), big.mark = ","))
+        })
+        
         output$plot <- renderPlot({
                 cols <- ifelse(cars$am == "Manual", "orange", "steelblue")
                 plot(cars$wt, cars$mpg, pch = 16, col = cols,

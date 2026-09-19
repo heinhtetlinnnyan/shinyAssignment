@@ -5,7 +5,7 @@ account: heinhtet
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 17955112
-bundleId: 12576402
+bundleId: 12576435
 url: https://heinhtet.shinyapps.io/shinyAssignment/
 version: 1
 asMultiple: FALSE

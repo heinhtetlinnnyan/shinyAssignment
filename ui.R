@@ -8,7 +8,9 @@ shinyUI(fluidPage(
                                     min = 1.5, max = 5.5, value = 3, step = 0.1),
                         radioButtons("am", "Transmission:",
                                      choices = c("Automatic", "Manual")),
-                        checkboxInput("showLine", "Show regression lines", value = TRUE)
+                        checkboxInput("showLine", "Show regression lines", value = TRUE),
+                        numericInput("miles", "Miles you drive per year:", value = 12000, min = 0),
+                        numericInput("price", "Fuel price per gallon (USD):", value = 3.5, min = 0, step = 0.1)
                 ),
                 mainPanel(
                         tabsetPanel(
@@ -30,6 +32,8 @@ shinyUI(fluidPage(
                                                  tags$li("On the plot, the red X is your car. The dots are
                             the 32 real cars the model learned from.")
                                          ),
+                                         h2(textOutput("pred")),
+                                         h4(textOutput("cost")),
                                          h3("How it works"),
                                          p("The prediction comes from a linear regression,
                    mpg ~ weight + transmission, fit on R's built-in
