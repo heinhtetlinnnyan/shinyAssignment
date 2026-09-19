@@ -1,0 +1,46 @@
+---
+title: "MPG Predictor"
+subtitle: "Fuel efficiency at a glance"
+author: "Hein"
+date: today
+format:
+  revealjs:
+    embed-resources: true
+---
+
+## The problem
+
+- Fuel cost depends heavily on a car's MPG.
+- Buyers rarely know how weight and transmission affect it.
+- **MPG Predictor** gives an instant estimate from two simple inputs.
+
+## How the app works
+
+1. Set the car's weight with a slider.
+2. Pick Automatic or Manual.
+3. See the predicted MPG and where your car sits among 32 real cars.
+
+No statistics knowledge needed. Instructions are built into the app.
+
+## The model (reproducible)
+
+```{r}
+#| echo: true
+fit <- lm(mpg ~ wt + factor(am), data = mtcars)
+round(coef(fit), 2)
+```
+
+Each extra 1,000 lbs lowers MPG by about 5.
+
+## Try it
+
+A 3,000 lb automatic car:
+
+```{r}
+#| echo: true
+round(predict(fit, data.frame(wt = 3, am = 0)), 1)
+```
+
+App: <https://ACCOUNT.shinyapps.io/mpg-predictor/>
+
+Code: <https://github.com/heinhtetlinnnyan/mpg-predictor>
