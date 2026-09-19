@@ -41,6 +41,6 @@ A 3,000 lb automatic car:
 round(predict(fit, data.frame(wt = 3, am = 0)), 1)
 ```
 
-App: <https://ACCOUNT.shinyapps.io/mpg-predictor/>
+App: <https://heinhtet.shinyapps.io/shinyAssignment/>
 
-Code: <https://github.com/heinhtetlinnnyan/mpg-predictor>
+Code: <https://github.com/heinhtetlinnnyan/shinyAssignment>
